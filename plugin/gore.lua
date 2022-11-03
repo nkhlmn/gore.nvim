@@ -7,9 +7,18 @@ local function gore_cmd_handler(args)
   end
 end
 
+local function get_completion_items()
+  local items = {}
+  for key, _ in pairs(gore.categories) do
+    table.insert(items, key)
+  end
+
+  return items
+end
+
 local gore_cmd_opts = {
   force = true,
-  complete = gore.get_completion_items,
+  complete = get_completion_items,
   nargs = '?',
 }
 
