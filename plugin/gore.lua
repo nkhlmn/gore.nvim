@@ -15,10 +15,3 @@ local gore_cmd_opts = {
 
 vim.api.nvim_create_user_command('Gore', gore_cmd_handler, gore_cmd_opts)
 
-gore.setup({
-  categories = {
-    ['sandbox'] = { name = 'Sandbox', folder = '~/development/sandbox'},
-    ['development'] = { name = 'Development', folder = '~/development'},
-  }
-})
-
