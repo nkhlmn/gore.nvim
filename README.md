@@ -2,7 +2,9 @@
 
 ## :exclamation::exclamation::exclamation: WIP :exclamation::exclamation::exclamation:
 
-Categorize files quickly i.e. save the current file to a predefined location
+Categorize files quickly.
+
+I built this to be used alongside contemplate.nvim, which I use to quickly create files, to save the current file to a predefined location.
 
 ## Installation
 
@@ -28,7 +30,7 @@ A filename can also be provided as a second argument. If not provided, the curre
 
 Examples:
 ```vim
-" Assuming the current file being a lua script named `nvim_lua-20221106T145630.lua`:
+" Assuming the current file being edited is a lua script named `nvim_lua-20221106T145630.lua`:
 
 " Saves a copy of the current file to ~/development/sandbox/nvim_lua-20221106T145630.lua
 :Gore sandbox
