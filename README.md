@@ -4,7 +4,7 @@
 
 Categorize files quickly.
 
-I built this to be used alongside contemplate.nvim, which I use to quickly create files, to save the current file to a predefined location.
+I built this to be used alongside [`contemplate.nvim`](https://github.com/nkhlmn/contemplate.nvim), which I use to quickly create files, to save the current file to a predefined location.
 
 ## Installation
 
@@ -15,7 +15,7 @@ use {
     require('gore').setup({
       categories = {
         ['sandbox'] = { name = 'Sandbox', folder = '~/development/sandbox' },
-        ['nvim_lua_scripts'] = { name = 'Neovim Lua Scripts', folder = '~/development/nvim_lua' },
+        ['nvim_lua'] = { name = 'Neovim Lua Scripts', folder = '~/development/nvim_lua' },
       }
     })
   end
@@ -24,21 +24,22 @@ use {
 
 ## Usage
 
-Call `:Gore <arg> <filename>` to save the current file, where `<arg>` is one of the keys in the table passed into `setup()`.
+Call `:Gore <arg> <filename>` to save the current file, where `<arg>` is one of the keys in the table passed into `setup()` and `<filename>` is optional.
 
-A filename can also be provided as a second argument. If not provided, the current filename will be used. The file extension is optional. If not provided, it will use the current filename's extension. 
+If `<filename>` is not provided, the current filename will be used. The file extension is optional. If not provided, it will use the current filename's extension.
 
 Examples:
 ```vim
-" Assuming the current file being edited is a lua script named `nvim_lua-20221106T145630.lua`:
+" Assuming the current file being edited is a lua script named `nvim_lua-20221106T145630.lua`
+" and the categories are configured like in the example config above
 
-" Saves a copy of the current file to ~/development/sandbox/nvim_lua-20221106T145630.lua
+" Saves a copy of the current file to ~/development/nvim_lua/nvim_lua-20221106T145630.lua
 :Gore sandbox
 
-" Saves a copy of the current file to ~/development/sandbox/my-awesome-script.lua
-:Gore sandbox my-awesome-script
+" Saves a copy of the current file to ~/development/nvim_lua/my_awesome_script.lua
+:Gore nvim_lua my_awesome_script
 " or
-:Gore sandbox my-awesome-script.lua
+:Gore nvim_lua my_awesome_script.lua
 ```
 
 ## TODO
