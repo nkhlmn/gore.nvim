@@ -2,15 +2,13 @@
 
 ## :exclamation::exclamation::exclamation: WIP :exclamation::exclamation::exclamation:
 
-Categorize files quickly.
-
-I built this to be used alongside [`contemplate.nvim`](https://github.com/nkhlmn/contemplate.nvim), which I use to quickly create files, to save the current file to a predefined location.
+This plugin lets you save the current file to a predefined location. I built this to be used alongside [`contemplate.nvim`](https://github.com/nkhlmn/contemplate.nvim), which I use to quickly create files.
 
 ## Installation
 
 ```lua
 use { 
-  'nkhlmn/contemplate.nvim',
+  'nkhlmn/gore.nvim',
   config = function() 
     require('gore').setup({
       categories = {
