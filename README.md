@@ -22,11 +22,20 @@ use {
 }
 ```
 
+### (optional) Telescope support
+
+Ensure the extension is loaded in your neovim config:
+```lua
+require('telescope').load_extension('gore')
+```
+
 ## Usage
 
 Call `:Gore <arg> <filename>` to save the current file, where `<arg>` is one of the keys in the table passed into `setup()` and `<filename>` is optional.
 
 If `<filename>` is not provided, the current filename will be used. The file extension is optional. If not provided, it will use the current filename's extension.
+
+If no arguments are provided and `telescope.nvim` is installed, a picker will be opened with your configured categories.
 
 Examples:
 ```vim
@@ -44,4 +53,4 @@ Examples:
 
 ## TODO
 
-- Telescope support
+- Prompt for filename in telescope picker?

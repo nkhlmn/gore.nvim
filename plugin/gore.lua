@@ -1,9 +1,15 @@
 local gore = require('gore')
+local has_telescope, telescope = pcall(require, 'telescope')
 
 local function gore_cmd_handler(args)
   if #args.fargs == 0 then
-    vim.notify('You must provide one or two argument')
-    return
+    if has_telescope then
+      telescope.extensions.gore.gore()
+      return
+    else
+      vim.notify('Telescope is not installed!')
+      return
+    end
   end
 
   local opts = { category = args.fargs[1] }

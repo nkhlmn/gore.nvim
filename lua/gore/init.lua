@@ -24,6 +24,8 @@ function M.save_file(opts)
 
   if filename ~= nil and filename ~= '' then
     vim.cmd.saveas(folder .. '/' .. filename)
+  else
+    vim.notify('Could not construct a filename!')
   end
 end
 
