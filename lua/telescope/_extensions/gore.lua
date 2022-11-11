@@ -17,27 +17,23 @@ local function entry_maker(entry)
   return { value = entry, display = entry.name, ordinal = entry.name }
 end
 
-local function get_telescope_picker(results, opts)
+local function get_telescope_picker(opts)
   local pickers = require('telescope.pickers')
   local conf = require('telescope.config').values
   local finders = require('telescope.finders')
   local dropdown = require('telescope.themes').get_dropdown({})
   opts = vim.tbl_deep_extend('force', dropdown, opts or {})
 
-  if results == nil then
-    results = {}
-  end
-
   local gore_categories = {}
-  if gore.categories ~= nil then
-    for key, val in pairs(gore.categories) do
+  local config = vim.g.gore_config
+  if config ~= nil and config.categories ~= nil then
+    for key, val in pairs(config.categories) do
       val.category = key
       table.insert(gore_categories, val)
     end
   end
-  results = vim.list_extend(results, gore_categories)
 
-  local finder = finders.new_table({ results = results, entry_maker = entry_maker })
+  local finder = finders.new_table({ results = gore_categories, entry_maker = entry_maker })
   local picker = pickers.new(opts, {
     prompt_title = 'Gore',
     finder = finder,
@@ -49,8 +45,8 @@ end
 
 return require('telescope').register_extension({
   exports = {
-    gore = function(results, opts)
-      local picker = get_telescope_picker(results, opts)
+    gore = function(opts)
+      local picker = get_telescope_picker(opts)
       picker:find()
     end,
   },

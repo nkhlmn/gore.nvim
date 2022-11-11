@@ -26,7 +26,7 @@ local function get_completion_items(_, line, _)
   local arg_count = vim.split(line, "%s+")
   if #arg_count < 3 then
     local items = {}
-    for key, _ in pairs(gore.categories) do
+    for key, _ in pairs(vim.g.gore_config.categories) do
       table.insert(items, key)
     end
     return items
